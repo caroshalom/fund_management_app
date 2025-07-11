@@ -190,4 +190,3 @@ class FundCard extends StatelessWidget {
   }
 
 }
-

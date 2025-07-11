@@ -36,13 +36,11 @@ class FundProvider with ChangeNotifier {
     _isLoading = true;
     _errorMessage = null;   // Reinicia el mensaje de error antes de empezar.
     notifyListeners(); // AVISA A LA UI: "¡Estoy ocupado, muestra 'cargando'!"
-
       try {
       _funds = await _fundRepository.getFunds();
     } catch (e) {
       _errorMessage = "No se pudieron cargar los fondos. Revisa tu conexión o el servidor.";
     }
-    
     _isLoading = false;
     notifyListeners();
   }
