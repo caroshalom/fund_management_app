@@ -1,7 +1,8 @@
 import '../models/fund_model.dart';
 import '../datasources/fund_api_datasource.dart';
 
-//Este es el contratista que dirige al mensajero
+// Repositorio para manejar las operaciones relacionadas con los fondos.
+// Este repositorio utiliza un datasource para obtener los datos de los fondos.
 class FundRepository {
   final FundApiDatasource _apiDatasource = FundApiDatasource();
 

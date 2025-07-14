@@ -1,4 +1,6 @@
-//Este el plano de nuestros datos
+//Este el modelo de fondo que representa un fondo de inversión.
+// Incluye el id, nombre, monto mínimo, categoría, nombre para mostrar,
+
 class Fund {
   final String id;
   final String name;
@@ -18,6 +20,7 @@ class Fund {
     this.subscribedAmount,
   });
 
+// Método para convertir un objeto Fund a un mapa JSON.
   factory Fund.fromJson(Map<String, dynamic> json) {
     return Fund(
       id: json['id'].toString(), // Convertimos el id a String para más flexibilidad.

@@ -39,8 +39,8 @@ class AppTheme {
         ),
       ),
 
-      // Estilo de las tarjetas (Card).
-      // no el widget CardTheme.
+      // Estilo de las tarjetas (Card). No el widget Card, sino el tema de las tarjetas.
+      // Esto define cómo se verán las tarjetas en toda la app.
       cardTheme: CardThemeData(
         elevation: 2,
         shape: RoundedRectangleBorder(

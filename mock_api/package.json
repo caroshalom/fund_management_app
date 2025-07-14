@@ -4,9 +4,9 @@
   "description": "API simulada para la Fund Management App",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch db.json"
+    "start": "json-server --watch db_funds.json"
   },
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.4"
   }
 }

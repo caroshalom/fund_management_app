@@ -5,15 +5,15 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'presentation/screens/home_screen.dart';
 import 'presentation/theme/app_theme.dart';
 
-//La función main ahora 'async' para poder esperar a que se carguen los datos del idioma.
+// Este es el punto de entrada de nuestra aplicación Flutter
 void main() async{
-  // Le decimos a Flutter que se asegure de que todo esté listo para funcionar.
+  // Aseguramos que la inicialización de Flutter esté completa antes de ejecutar cualquier código.
   WidgetsFlutterBinding.ensureInitialized();
 
   // La aplicación no continuará hasta que esta tarea termine.
   await initializeDateFormatting('es_CO', null);
   
-  // Envolvemos nuestra app con el "conector" del cerebro.
+  // Envolvemos nuestro widget `MyApp`con un `ChangeNotifierProvider`.
   runApp(
     ChangeNotifierProvider(
       create: (context) => FundProvider(),
@@ -22,15 +22,16 @@ void main() async{
   );
 }
 
+// Este widget es el corazón de nuestra aplicación.
+// Aquí definimos el tema y la estructura básica de la app.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+/// Este método construye la aplicación y define su tema.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Quita la cinta de "Debug".
+      debugShowCheckedModeBanner: false, 
       title: 'Fund Management App',
-      // Aquí le decimos a nuestra app que use el tema que se creó.
       theme: AppTheme.theme,
       home: const HomeScreen(),
     );

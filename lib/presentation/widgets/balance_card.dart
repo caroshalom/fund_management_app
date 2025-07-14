@@ -3,9 +3,10 @@ import 'package:intl/intl.dart';
 
 class BalanceCard extends StatelessWidget {
   final double balance;
-
   const BalanceCard({super.key, required this.balance});
 
+  // Este widget representa una tarjeta que muestra el saldo del usuario.
+  // Utiliza un formato de moneda específico para mostrar el saldo.
   @override
   Widget build(BuildContext context) {
     final formatCurrency = NumberFormat('\$ #,##0', 'es_CO');
@@ -23,7 +24,7 @@ class BalanceCard extends StatelessWidget {
               children: [
                 Text(
                   'Saldo Disponible',
-                  style: TextStyle(fontSize: 16, color: Colors.white.withOpacity(0.8)),
+                  style: TextStyle(fontSize: 16, color: Colors.white.withAlpha(204)),
                 ),
                 Text(
                   formatCurrency.format(balance),

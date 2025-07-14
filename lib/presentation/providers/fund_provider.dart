@@ -3,14 +3,12 @@ import '../../data/models/fund_model.dart';
 import '../../data/models/transaction_model.dart';
 import '../../data/repositories/fund_repository.dart';
 
-//Este es el cerebro
-
-// "with ChangeNotifier" es lo que convierte esta clase normal en un "Cerebro"
-// que puede notificar a otros de sus cambios.
+// FundProvider es el encargado de manejar el estado de los fondos y las transacciones.
+// Utiliza ChangeNotifier para notificar a la UI cuando hay cambios en el estado.
 class FundProvider with ChangeNotifier {
   final FundRepository _fundRepository = FundRepository();
 
-  // ESTADO DE LA APLICACIÓN: Aquí guardamos la información. Las variables privadas empiezan con "_".
+  // ESTADO DE LA APLICACIÓN: Aquí guardamos la información. 
   bool _isLoading = false;
   List<Fund> _funds = [];
   String? _errorMessage;
@@ -26,12 +24,14 @@ class FundProvider with ChangeNotifier {
   List<Transaction> get transactions => _transactions;
 
 
-  // CONSTRUCTOR: Cuando se crea el cerebro, inmediatamente pide los datos.
+  // CONSTRUCTOR 
   FundProvider() {
     fetchFunds();
   }
 
- // --- ACCIONES ---
+ // --- ACCIONES ---    
+  // Método para obtener los fondos desde el repositorio.
+  // Aquí es donde se inicia la comunicación con la API.
   Future<void> fetchFunds() async {
     _isLoading = true;
     _errorMessage = null;   // Reinicia el mensaje de error antes de empezar.
@@ -44,8 +44,9 @@ class FundProvider with ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
-  // --- La lógica para suscribirse ---
-  String subscribeToFund(Fund fund, double amount) {
+  // --- La lógica para suscribirse ---   
+  // Este método maneja la lógica de suscripción a un fondo.   
+  String subscribeToFund(Fund fund, double amount, NotificationType notificationType) {
     // Validación 1: ¿El monto es menor al mínimo requerido?
     if (amount < fund.minimumAmount) {
       return 'El monto es menor al mínimo requerido.';
@@ -60,12 +61,14 @@ class FundProvider with ChangeNotifier {
     fund.isSubscribed = true; // Levantamos la "banderita" del fondo.
     fund.subscribedAmount = amount; // Guardamos el monto invertido
 
-    // Anotamos la suscripción en el diario.
+    // Anotamos la suscripción en el diario de transacciones.
+    // Aquí usamos el displayName del fondo para que sea más amigable en el registro.
     _transactions.insert(0, Transaction(
       fundName: fund.displayName,
       amount: amount,
       type: TransactionType.subscription,
       date: DateTime.now(),
+      notificationType: notificationType,
     ));
     
     // AVISAMOS A LA UI: "¡Hey, el saldo y un fondo han cambiado!"
@@ -73,13 +76,15 @@ class FundProvider with ChangeNotifier {
     return '¡Suscripción exitosa!'; 
   }
 
-  // La lógica para cancelar.
+  //Metodo para cancelar la suscripción
+  // Este método maneja la lógica de cancelación de una suscripción a un fondo.
   void cancelSubscription(Fund fund) {
+    // si el fondo no está suscrito o no tiene monto, no hacemos nada.
     if (!fund.isSubscribed || fund.subscribedAmount == null) return;
 
     _userBalance += fund.subscribedAmount!; // Devolvemos el monto exacto que se invirtió.
     
-    // Anotamos la cancelación en el diario.
+    // Anotamos la cancelación en el diario de transacciones.
     _transactions.insert(0, Transaction(
       fundName: fund.displayName,
       amount: fund.subscribedAmount!,
