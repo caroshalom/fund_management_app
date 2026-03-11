@@ -4,6 +4,8 @@ import 'presentation/providers/fund_provider.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'presentation/screens/home_screen.dart';
 import 'presentation/theme/app_theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 // Este es el punto de entrada de nuestra aplicación Flutter
 void main() async{
@@ -12,6 +14,11 @@ void main() async{
 
   // La aplicación no continuará hasta que esta tarea termine.
   await initializeDateFormatting('es_CO', null);
+  
+  // Inicializamos Firebase antes de ejecutar la aplicación.
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   
   // Envolvemos nuestro widget `MyApp`con un `ChangeNotifierProvider`.
   runApp(

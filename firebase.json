@@ -1,0 +1,35 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "fund-management-app-acf8b",
+          "appId": "1:224631928411:android:02c4c9dbda5ca80aab717e",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "fund-management-app-acf8b",
+          "configurations": {
+            "android": "1:224631928411:android:02c4c9dbda5ca80aab717e",
+            "ios": "1:224631928411:ios:2007a9e7c6f86251ab717e",
+            "macos": "1:224631928411:ios:2007a9e7c6f86251ab717e",
+            "web": "1:224631928411:web:f6717edbd1a0e6e1ab717e",
+            "windows": "1:224631928411:web:0e0f9225dd726d35ab717e"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
