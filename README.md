@@ -1,72 +1,45 @@
-# Fund Management App
+# Fund Management App 🚀
 
-## Descripción del Proyecto
+## 🌐 Demo en Vivo
+La aplicación está desplegada y funcional en la siguiente URL:
+**[https://fund-management-app-acf8b.web.app](https://fund-management-app-acf8b.web.app)**
 
-**Fund Management App** es una aplicación web interactiva y responsiva desarrollada con **Flutter** que simula una plataforma para la gestión de fondos de inversión. Permite a un usuario visualizar fondos, suscribirse, cancelar su participación y ver un historial de transacciones.
+---
 
-Este proyecto fue construido siguiendo las mejores prácticas de desarrollo de software, incluyendo una arquitectura limpia, un manejo de estado centralizado con Provider, diseño responsivo, validación de formularios y pruebas unitarias.
+## 📝 Descripción del Proyecto
+**Fund Management App** es una plataforma interactiva diseñada para la gestión de fondos de inversión. Permite a los usuarios explorar diversos fondos, realizar suscripciones (validando saldo disponible y montos mínimos), gestionar sus participaciones activas y consultar un historial completo de transacciones.
 
-## Características Funcionales
+El proyecto está construido bajo los principios de **Arquitectura Limpia (Clean Architecture)**, garantizando un código mantenible, escalable y fácil de probar.
 
-- **Visualización de Fondos**: Se conecta a una API simulada para obtener y mostrar una lista de fondos de inversión.
-- **Suscripción a Fondos**: Permite al usuario suscribirse a un fondo, validando el monto mínimo y el saldo disponible.
-- **Cancelación de Suscripción**: Permite al usuario cancelar su participación en un fondo, restaurando el saldo.
-- **Historial de Transacciones**: Muestra un registro cronológico de todas las suscripciones y cancelaciones.
-- **Selección de Notificación**: El usuario puede elegir entre Email o SMS al momento de la suscripción.
-- **Feedback Visual**: Proporciona mensajes claros de éxito y error, así como estados de carga.
+## ✨ Características Funcionales
+- **Dashboard de Usuario**: Visualización en tiempo real del saldo disponible y fondos destacados.
+- **Suscripción de Fondos**: Proceso de inversión con validaciones de negocio integradas.
+- **Cancelación de Participación**: Gestión flexible de inversiones con retorno inmediato al saldo.
+- **Historial de Transacciones**: Registro cronológico de movimientos financieros.
+- **Preferencias de Notificación**: Opción de elegir canales de comunicación (Email/SMS).
+- **Diseño Responsivo**: Interfaz optimizada para una experiencia fluida tanto en navegadores de escritorio como en dispositivos móviles.
 
-## Decisiones de Arquitectura y Técnicas
+## 🛠️ Stack Tecnológico
+- **Framework**: Flutter (Web)
+- **Manejo de Estado**: `Provider` (Arquitectura reactiva)
+- **Consumo de Datos**: 
+    - **Producción**: Consumo de archivos JSON estáticos optimizados.
+    - **Desarrollo**: Soporte para `json-server` (Mock API).
+- **Hosting e Infraestructura**: Firebase Hosting.
+- **Pruebas**: Suite de Unit Testing con `flutter_test`.
 
-- **Lenguaje**: Dart
-- **Framework**: Flutter (para Web)
-- **Arquitectura**: Arquitectura Limpia, separando la lógica en capas de `data` y `presentation`.
-- **Manejo de Estado**: `provider`, para una gestión de estado centralizada y reactiva.
-- **Diseño UI/UX**: Basado en la identidad corporativa de BTG Pactual, con un enfoque en la claridad y la experiencia de usuario. Se utiliza un `AppTheme` centralizado.
-- **Diseño Responsivo**: Se utiliza un `ListView` para una adaptabilidad natural en diferentes tamaños de pantalla, asegurando una buena experiencia en móvil y web.
-- **Consumo de API**: Se utiliza el paquete `http` para comunicarse con una API REST simulada con `json-server`.
-- **Pruebas**: Se implementan pruebas unitarias con `flutter_test` para validar la lógica de negocio en el `FundProvider`.
+## 📐 Arquitectura y Decisiones Técnicas
+- **Clean Architecture**: Separación clara de responsabilidades en capas de `Presentation`, `Domain` y `Data`.
+- **Desacoplamiento**: Uso de DataSources y Repositorios para permitir cambios en la fuente de datos (API real vs. Mock) sin afectar la lógica de negocio.
+- **UI Consistente**: Implementación de un `AppTheme` centralizado basado en estándares de banca digital premium.
 
-## Cómo Ejecutar el Proyecto
+---
 
-Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local.
+## 🚀 Cómo Ejecutar el Proyecto
 
 ### Prerrequisitos
+- **Flutter SDK**: [Guía de instalación](https://docs.flutter.dev/get-started/install)
+- **Firebase CLI**: (Opcional, para despliegue) `npm install -g firebase-tools`
 
-- **Flutter SDK**: [Instrucciones de instalación para Web](https://docs.flutter.dev/get-started/web)
-- **Node.js y npm**: [Descargar Node.js](https://nodejs.org/)
-
-### Pasos de Instalación y Ejecución
-
-1. **Clonar el Repositorio**
-```bash
-git clone <URL_DE_TU_REPOSITORIO_EN_GITHUB>
-cd fund_management_app
-```
-
-2. **Instalar Dependencias de Flutter**
-```bash
-flutter pub get
-```
-
-3. **Configurar y Ejecutar la API Simulada**  
-En una primera terminal, navega a la carpeta `mock_api`.
-
-```bash
-cd mock_api
-npm install
-npm start
-```
-
-¡Deja esta terminal abierta y corriendo!
-
-4. **Ejecutar la Aplicación Flutter**  
-En una segunda terminal, en la raíz del proyecto, ejecuta la aplicación.
-
-```bash
-flutter run -d chrome
-```
-
-5. **Ejecutar las Pruebas Unitarias**
-```bash
-flutter test
-```
+### Configuración Local
+1. **Clonar
