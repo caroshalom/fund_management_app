@@ -42,4 +42,7 @@ El proyecto está construido bajo los principios de **Arquitectura Limpia (Clean
 - **Firebase CLI**: (Opcional, para despliegue) `npm install -g firebase-tools`
 
 ### Configuración Local
-1. **Clonar
+1. **Clonar el repositorio**
+   ```bash
+   git clone [https://github.com/tu-usuario/fund_management_app.git](https://github.com/tu-usuario/fund_management_app.git)
+   cd fund_management_app
