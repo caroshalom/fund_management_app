@@ -10,7 +10,7 @@ class FundApiDatasource {
   Future<List<Fund>> getFunds() async {
     // Simula una demora de 700 milisegundos para simular una llamada a la API y mostrar un indicador de carga 
     // (esto es útil para pruebas y desarrollo, pero se debería eliminar en producción).
-    await Future.delayed(const Duration(milliseconds: 700)); 
+    //await Future.delayed(const Duration(milliseconds: 700)); 
     
     // Realiza la solicitud HTTP a la API para obtener los fondos
     final response = await http.get(Uri.parse('$_baseUrl/data'));
